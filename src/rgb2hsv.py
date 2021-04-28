@@ -27,7 +27,6 @@ class Rgb2hsv:
 
     def transform_img(self, file):
         img = cv2.imread(file)
-        print(img)
         hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
         return hsv[:, :, 2]
