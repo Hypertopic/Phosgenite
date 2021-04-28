@@ -36,6 +36,8 @@ class TSNE_KNN_model:
         df = pd.DataFrame(x)
 
         self.train = df[:(len(y_train))]
+        self.train["category"] = y_train
+
         test = df[(len(y_train)) + 1:]
 
         print(self.train)
