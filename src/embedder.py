@@ -34,8 +34,3 @@ class Embedder:
             e = pd.DataFrame(embeddings)
             e["name"] = self.name
         return e
-
-emb = Embedder("../data/SJ/Vitraux baies/").train_embedding()
-
-
-print(emb)
