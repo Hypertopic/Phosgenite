@@ -7,11 +7,6 @@ class Embedder:
         self.path_array = []
         self.name = []
 
-    def find_path(self):
-        with os.scandir(self.path) as dirs:
-            for entry in dirs:
-                self.path_array.append(self.path + entry.name)
-
     def train_find_path(self):
         with os.scandir(self.path) as dirs:
             for entry in dirs:
