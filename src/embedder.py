@@ -3,8 +3,7 @@ import os
 import pandas as pd
 
 class Embedder:
-    def __init__(self, path):
-        self.path = path
+    def __init__(self):
         self.path_array = []
         self.name = []
 
@@ -20,10 +19,9 @@ class Embedder:
                 name = entry.name.split('.')
                 self.name.append(name[0])
 
-    def embedding(self):
-        self.find_path()
+    def embedding(self, path):
         with ImageEmbedder(model='painters') as emb:
-            embeddings = emb(self.path_array)
+            embeddings = emb([path])
         return embeddings
 
 
