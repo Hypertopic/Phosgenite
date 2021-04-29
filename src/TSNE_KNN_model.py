@@ -43,10 +43,29 @@ class TSNE_KNN_model:
         print(self.train)
 
 
+    def knn(self):
+        le = preprocessing.LabelEncoder()
+        self.train["category"] = le.fit_transform(self.train["category"])
+
+
+        y_train = self.train["category"].values
+        x_train = self.train.drop("category", axis=1).values
+        test = self.test.values
+
+        knn = KNeighborsClassifier(n_neighbors=1, metric="euclidean")
+
+        knn.fit(x_train, y_train)
+        print(self.test)
+        pred = knn.predict(self.test)
+
+        print(pred)
+        print("pred " + le.inverse_transform(pred))
+
 model = TSNE_KNN_model("C:/Users/antoi/Documents/UTT/ISI 4/PE/Phosgenite/src/data/SJ/test images/SJ 000 5.png")
 model.transform_train()
 model.transform_test()
 model.tsne()
+model.knn()
 
 
 
