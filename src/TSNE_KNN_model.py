@@ -54,7 +54,7 @@ class TSNE_KNN_model:
         knn = KNeighborsClassifier(n_neighbors=1, metric="euclidean")
 
         knn.fit(x_train, y_train)
-        pred = knn.predict(self.test)
+        pred = knn.predict(test)
 
         print(pred)
         print("pred: ", le.inverse_transform(pred)[0])
