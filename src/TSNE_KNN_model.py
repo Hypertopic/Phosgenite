@@ -24,12 +24,10 @@ class TSNE_KNN_model:
     def transform_train(self):
         Rgb2hsv().transform_folder(self.cwd + "/data/SJ/Vitraux baies/", self.cwd + "/data/SJ/Vitraux baies hsv/")
         self.train = Embedder().train_embedding(self.cwd + "/data/SJ/Vitraux baies hsv/")
-        print(self.train)
 
     def transform_test(self):
         self.test = Rgb2hsv().transform_img(self.test, 'test.png')
         self.test = Embedder().embedding('test.png')
-        print(self.test)
 
     def tsne(self):
         y_train = self.train["name"].values
@@ -45,12 +43,9 @@ class TSNE_KNN_model:
         self.test = df[(len(y_train)):]
         self.train["category"] = y_train
 
-        print(self.train)
-
     def knn(self):
         le = preprocessing.LabelEncoder()
         self.train["category"] = le.fit_transform(self.train["category"])
-
 
         y_train = self.train["category"].values
         x_train = self.train.drop("category", axis=1).values
@@ -59,7 +54,6 @@ class TSNE_KNN_model:
         knn = KNeighborsClassifier(n_neighbors=1, metric="euclidean")
 
         knn.fit(x_train, y_train)
-        print(self.test)
         pred = knn.predict(self.test)
 
         print(pred)
