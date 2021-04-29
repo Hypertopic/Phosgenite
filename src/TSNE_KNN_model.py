@@ -67,8 +67,5 @@ class TSNE_KNN_model:
 
 
 
-model = TSNE_KNN_model("C:/Users/antoi/Documents/UTT/ISI 4/PE/Phosgenite/src/data/SJ/test images/SJ 019 3.png")
-
-
 
 
