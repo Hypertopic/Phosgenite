@@ -16,6 +16,11 @@ class TSNE_KNN_model:
         self.cwd.replace('/', '\\')
         self.test = img
 
+        self.transform_train()
+        self.transform_test()
+        self.tsne()
+        self.knn()
+
     def transform_train(self):
         Rgb2hsv().transform_folder(self.cwd + "/data/SJ/Vitraux baies/", self.cwd + "/data/SJ/Vitraux baies hsv/")
         self.train = Embedder().train_embedding(self.cwd + "/data/SJ/Vitraux baies hsv/")
@@ -42,7 +47,6 @@ class TSNE_KNN_model:
 
         print(self.train)
 
-
     def knn(self):
         le = preprocessing.LabelEncoder()
         self.train["category"] = le.fit_transform(self.train["category"])
@@ -61,11 +65,10 @@ class TSNE_KNN_model:
         print(pred)
         print("pred " + le.inverse_transform(pred))
 
-model = TSNE_KNN_model("C:/Users/antoi/Documents/UTT/ISI 4/PE/Phosgenite/src/data/SJ/test images/SJ 000 5.png")
-model.transform_train()
-model.transform_test()
-model.tsne()
-model.knn()
+
+
+model = TSNE_KNN_model("C:/Users/antoi/Documents/UTT/ISI 4/PE/Phosgenite/src/data/SJ/test images/SJ 019 3.png")
+
 
 
 
