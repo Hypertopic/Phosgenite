@@ -57,9 +57,4 @@ class TSNE_KNN_model:
         pred = knn.predict(self.test)
 
         print(pred)
-        print("pred " + le.inverse_transform(pred))
-
-
-
-
-
+        print("pred: ", le.inverse_transform(pred))
