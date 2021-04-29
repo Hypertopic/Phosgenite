@@ -7,10 +7,10 @@ class Embedder:
         self.path_array = []
         self.name = []
 
-    def train_find_path(self):
-        with os.scandir(self.path) as dirs:
+    def find_path(self, folder_path):
+        with os.scandir(folder_path) as dirs:
             for entry in dirs:
-                self.path_array.append(self.path + entry.name)
+                self.path_array.append(folder_path + entry.name)
                 name = entry.name.split('.')
                 self.name.append(name[0])
 
@@ -19,9 +19,8 @@ class Embedder:
             embeddings = emb([path])
         return embeddings
 
-
-    def train_embedding(self):
-        self.train_find_path()
+    def train_embedding(self, folder_path):
+        self.find_path(folder_path)
         with ImageEmbedder(model='painters') as emb:
             embeddings = emb(self.path_array)
             e = pd.DataFrame(embeddings)
