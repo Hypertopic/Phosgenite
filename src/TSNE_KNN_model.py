@@ -16,7 +16,8 @@ class TSNE_KNN_model:
         self.cwd.replace('/', '\\')
         self.test = img
 
-        self.transform_train()
+        #self.transform_train()
+        self.get_train()
         self.transform_test()
         self.tsne()
         self.knn()
@@ -24,6 +25,9 @@ class TSNE_KNN_model:
     def transform_train(self):
         Rgb2hsv().transform_folder(self.cwd + "/data/SJ/Vitraux baies/", self.cwd + "/data/SJ/Vitraux baies hsv/")
         self.train = Embedder().train_embedding(self.cwd + "/data/SJ/Vitraux baies hsv/")
+
+    def get_train(self):
+        self.train = pd.read_csv("./data/SJ/datasets/train_data_hsv_v.csv")
 
     def transform_test(self):
         self.test = Rgb2hsv().transform_img(self.test, 'test.png')
