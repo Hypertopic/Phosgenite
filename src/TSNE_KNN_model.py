@@ -30,8 +30,8 @@ class TSNE_KNN_model:
         self.test = Embedder().embedding('test.png')
 
     def tsne(self):
-        y_train = self.train["name"].values
-        x_train = self.train.drop("name", axis=1).values
+        y_train = self.train["category"].values
+        x_train = self.train.drop("category", axis=1).values
 
         X = np.concatenate([x_train, self.test])
         tsne = TSNE(n_components=2, perplexity=10, early_exaggeration=1)
