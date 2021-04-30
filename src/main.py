@@ -1,8 +1,9 @@
 from TSNE_KNN_model import TSNE_KNN_model
 
 import time
+import os
 
 start = time.time()
-TSNE_KNN_model("C:/Users/antoi/Documents/UTT/ISI 4/PE/Phosgenite/src/data/SJ/test images/SJ 019 3.png")
+TSNE_KNN_model(os.getcwd() + "/data/SJ/test images/SJ 000 5.png")
 end = time.time()
 print("Exdecution time: ", end - start)
