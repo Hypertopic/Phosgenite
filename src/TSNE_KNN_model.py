@@ -34,7 +34,6 @@ class TSNE_KNN_model:
         x_train = self.train.drop("name", axis=1).values
 
         X = np.concatenate([x_train, self.test])
-        print(pd.DataFrame(X))
         tsne = TSNE(n_components=2, perplexity=10, early_exaggeration=1)
         x = tsne.fit_transform(X)
         df = pd.DataFrame(x)
@@ -56,5 +55,4 @@ class TSNE_KNN_model:
         knn.fit(x_train, y_train)
         pred = knn.predict(test)
 
-        print(pred)
         print("pred: ", le.inverse_transform(pred)[0])
