@@ -30,8 +30,8 @@ class TSNE_KNN_model:
         self.train = pd.read_csv("./data/SJ/datasets/train_data_hsv_v.csv")
 
     def transform_test(self):
-        self.test = Rgb2hsv().transform_img(self.test, 'test.png')
-        self.test = Embedder().embedding('test.png')
+        self.test = Rgb2hsv().transform_img(self.test, 'test.jpg')
+        self.test = Embedder().embedding('test.jpg')
 
     def tsne(self):
         y_train = self.train["category"].values
