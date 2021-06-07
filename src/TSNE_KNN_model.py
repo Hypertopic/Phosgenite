@@ -38,7 +38,7 @@ class TSNE_KNN_model:
         x_train = self.train.drop("category", axis=1).values
 
         X = np.concatenate([x_train, self.test])
-        tsne = TSNE(n_components=2, perplexity=10, early_exaggeration=1)
+        tsne = TSNE(n_components=2, perplexity=8, early_exaggeration=1)
         x = tsne.fit_transform(X)
         df = pd.DataFrame(x)
 
