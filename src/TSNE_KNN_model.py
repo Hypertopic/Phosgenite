@@ -20,7 +20,9 @@ class TSNE_KNN_model:
         self.get_train()
         self.transform_test()
         self.tsne()
-        self.knn()
+        lab = self.knn()
+
+        return lab
 
     def transform_train(self):
         Rgb2hsv().transform_folder(self.cwd + "/data/SJ/Vitraux baies/", self.cwd + "/data/SJ/Vitraux baies hsv/")
@@ -60,3 +62,5 @@ class TSNE_KNN_model:
         pred = knn.predict(test)
 
         print("pred: ", le.inverse_transform(pred)[0])
+
+        return le.inverse_transform(pred)[0]
