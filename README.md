@@ -18,6 +18,14 @@ Phosgenite a été développé avec des images de vitraux provenant de l'église
 - Les données d'entrainements stockées dans ```data/SJ/Vitraux baies```
 - Les données de tests stockées dans ```data/SJ/test images```
 
-## Fonctionnement
+## Utilisation
+
+Appeler la fonction find_label du script main.py avec comme paramètre le chemin relatif de l'image à prédire.
+
+Exemple:
+
+```find_label("/data/SJ/test images/SJ 000 1.jpg")```
+
+La fonction find_label appelle la fonction TSNE_KNN_model qui permet de prédire le label de l'image passée en paramètres.
 
 
