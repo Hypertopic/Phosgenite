@@ -33,14 +33,15 @@ La fonction find_label appelle la fonction TSNE_KNN_model qui permet de prédire
 
 Afin de mieux comprendre comment fonctionne le modèle nous allons le detailler dans un diagramme de flux :
 
-![action_objet](https://user-images.githubusercontent.com/72007646/122439730-2f479400-cf9c-11eb-9029-5a3ebe130370.PNG)
-
+![action_objet 3](https://user-images.githubusercontent.com/72007646/133388610-2b78e388-1eda-41c1-a6b1-9f95760b44e7.PNG)
 
 Voici le role de chaque script:
 
 - La transformation des images en HSV est realisé par le script ```rgb2hsv.py```
 - L'embedding est fait grace au script ```embedder.py```
-- Le reste du traitement des données est realisé dans le script ```TSNE_KNN_model.py```
+- Le reste du traitement des données (reduction de dimensions avec TSNE et prediction du label avec un KNN) est realisé dans le script ```TSNE_KNN_model.py```
+
+
 
 
 Le script ```cropper.py``` implémente un outil de rognagne automatique des images de vitraux. Ce script est expérimental et ne présente pas tout le temps des résultats satisfaisants. Ce script n'a pas été ajouté a la chaine de traitement des données. Il est possible d'appeler la fonction crop() de ce script dans le constructeur de la classe TSNE_KNN_model avant l'appel de la fonction ```self.transform_test()```
